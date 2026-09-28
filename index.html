@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brothers World</title>
+<meta name="theme-color" content="#21265f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Brothers World">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+  html,body{margin:0;height:100%;background:#21265f}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#21265f}
+  #wait{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#f1bf4e;font:700 22px Georgia,serif}
+  #wait img{width:96px;height:96px}
+</style>
+</head>
+<body>
+<div id="wait"><img src="icon-192.png" alt=""><div>Brothers World</div></div>
+<script>
+  // ↓↓↓ শুধু এই লাইনে আপনার Apps Script-এর /exec লিংক বসান ↓↓↓
+  const APP_URL = 'https://script.google.com/macros/s/AKfycbwss1LxnUKQO_ie9euzp6as__lOFnDINdp4nmPdYp2FPv7TKK2YnBIfTMcTEYW9UCNa6Q/exec';
+  // ↑↑↑ এর বাইরে কিছু বদলাতে হবে না ↑↑↑
+  const f = document.createElement('iframe');
+  f.src = APP_URL;
+  f.allow = 'clipboard-write; web-share';
+  f.onload = () => document.getElementById('wait').remove();
+  document.body.appendChild(f);
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
